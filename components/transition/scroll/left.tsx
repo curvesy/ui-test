@@ -7,13 +7,17 @@ type Props = {
 };
 
 export default function ScrollSlideLeft({children}: Props) {
+	const ref = useRef<HTMLDivElement>();
 	const el = useRef();
 	const [show, setShow] = useState<boolean>(false);
-	useTriggerOnScroll(el, (triggered) => {
-		setShow(triggered);
-	});
+	useTriggerOnScroll(
+		el,
+		(triggered: boolean | ((prevState: boolean) => boolean)) => {
+			setShow(triggered);
+		}
+	);
 	return (
-		<div ref={el}>
+		<div ref={el as any}>
 			<SlideLeft show={show}>{children}</SlideLeft>
 		</div>
 	);

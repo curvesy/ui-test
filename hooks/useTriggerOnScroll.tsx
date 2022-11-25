@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-function getOffset(el) {
+function getOffset(el: any) {
 	var _x = 0;
 	var _y = 0;
 	while (el && !isNaN(el.offsetLeft) && !isNaN(el.offsetTop)) {
@@ -11,14 +11,14 @@ function getOffset(el) {
 	return {top: _y, left: _x};
 }
 
-function hasScrolledTo(el) {
+function hasScrolledTo(el: any) {
 	if (!el) return false;
 	const top = getOffset(el).top;
 	const offset = window.innerHeight / 2;
 	return top - offset <= window.pageYOffset;
 }
 
-export default function useTriggerOnScroll(ref, onTrigger) {
+export default function useTriggerOnScroll(ref: any, onTrigger: any) {
 	const [triggered, setTriggered] = useState<boolean>(false);
 	useEffect(() => {
 		function onScroll() {
