@@ -12,7 +12,7 @@ export default function ScrollSlideLeft({children}: Props) {
 	const [show, setShow] = useState<boolean>(false);
 	useTriggerOnScroll(
 		el,
-		(triggered: boolean | ((prevState: boolean) => boolean)) => {
+		(triggered: any | ((prevState: boolean) => boolean)) => {
 			setShow(triggered);
 		}
 	);
