@@ -41,3 +41,4 @@ export default function useTriggerOnScroll(ref: any, onTrigger: any) {
 		};
 	}, [ref, onTrigger, triggered]);
 }
+
